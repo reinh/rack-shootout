@@ -22,6 +22,16 @@ namespace :shootout do
       AsciiGraph.time(command % [framework, framework])
     end
   end
+  
+  task :frameworks_test do
+    command = 'curl -vs -d "post[title]=This Post Is From %s" -d "post[body]=This Post Also Has A Body" localhost:3000/%s/posts'
+
+    %w(rack rails sinatra).each do |framework|
+      puts
+      puts "== #{framework.upcase} =="
+      puts `#{command % [framework, framework]}`
+    end
+  end
 end
 
 task :environment do
