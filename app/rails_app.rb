@@ -24,11 +24,13 @@ end
 # Application code
 class Rails::PostsController < ActionController::Base
   def create
-    post = Post.new(params[:post])
+    post = Post.new(params["post"])
     if post.save
       render :text => "Rails Created!"
     else
       render :text => ("Errors:\n" + post.errors.full_messages.to_yaml), :status => 400
     end
   end
+  
+  def index; create; end
 end
