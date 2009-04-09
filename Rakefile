@@ -11,14 +11,16 @@ Spec::Rake::SpecTask.new do |t|
   t.spec_opts = %w(-fs --color)
 end
 
-desc "Run the framework shootout"
-task :frameworks do
-  command = 'curl -s -d "post[title]=This Post Is From %s" -d "post[body]=This Post Also Has A Body" localhost:3000/%s/posts > /dev/null'
+namespace :shootout do
+  desc "Run the framework shootout"
+  task :frameworks do
+    command = 'curl -s -d "post[title]=This Post Is From %s" -d "post[body]=This Post Also Has A Body" localhost:3000/%s/posts > /dev/null'
 
-  %w(rack rails sinatra).each do |framework|
-    puts
-    puts "== #{framework.upcase} =="
-    AsciiGraph.time(command % [framework, framework])
+    %w(rack rails sinatra).each do |framework|
+      puts
+      puts "== #{framework.upcase} =="
+      AsciiGraph.time(command % [framework, framework])
+    end
   end
 end
 
