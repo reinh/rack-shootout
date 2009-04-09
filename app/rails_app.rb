@@ -4,7 +4,6 @@ require 'dispatcher'
 
 # Rails pwned
 ActionController::Base.session = { :session_key => "_myapp_session", :secret => "some secret phrase of at least 30 characters" }
-ActionController::Routing.use_controllers! ['home']
 
 class ActionController::Dispatcher
   def prepare_application
