@@ -3,31 +3,36 @@
 # Use FOR SPEED!!!
 require 'benchmark'
 
-class VertiBar
+class AsciiGraph
   WIDTH = 72
   STEPS = WIDTH/6
-  
-  def self.draw(sample)
-    new(sample).draw
+
+  def self.draw(sample, options={})
+    new(sample, options).draw
   end
-  
-  def self.time_command(command)
+
+  def self.time(command)
     times = 200
-  
-    # puts "Collecting samples..."
-    sample = (1..times).map{|i| Benchmark.realtime{system(command)} * 1000}
-    # puts "Sample: #{sample.inspect}"
-    VertiBar.draw(sample)
+
+    print "Collecting samples"
+    sample = (1..times).map do |i|
+      print '.'
+      Benchmark.realtime{system(command)} * 1000
+    end
+
+    print "\n"
+    draw(sample, :display => false)
   end
-  
-  
-  def initialize(array)
-    @values = array
-    @height = array.size
-    @max    = array.max
+
+
+  def initialize(sample, options={})
+    @values  = sample
+    @height  = sample.size
+    @max     = sample.max
+    @options = {:display => true}.merge(options)
   end
   private :initialize
-  
+
   def draw
     # initialize display with blanks
     display = @values.map { |value|
@@ -37,8 +42,8 @@ class VertiBar
       str = CLI.colorize(str, color)
       str
     }
-    
-    # puts display
+
+    puts display if @options[:display]
     puts
     printf "The mean is %f\n", @values.without_outliers.average
     printf "The standard deviation is %f\n", @values.without_outliers.standard_deviation
@@ -60,7 +65,7 @@ module CLI
         colorize(text, color)
       end
     end
-    
+
     def colorize(text, color)
       "#{COLORS[color]}#{text}\033[0m"
     end
@@ -71,15 +76,15 @@ module Enumerable
   def sum
     self.inject(0) { |acc, i| acc + i }
   end
-  
+
   def average
     self.sum / self.length.to_f
   end
-  
+
   def outlier?(item)
     item > self.max * 0.9 || item < self.max * 0.1
   end
-  
+
   def without_outliers
     reject{|item| self.outlier?(item) }
   end
@@ -97,5 +102,5 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   require 'benchmark'
-  
+
 end
