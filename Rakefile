@@ -23,6 +23,7 @@ namespace :shootout do
     end
   end
   
+  desc "Test each framework. Should respond with a Created! message if successful."
   task :frameworks_test do
     command = 'curl -s -d "post[title]=This Post Is From %s" -d "post[body]=This Post Also Has A Body" localhost:3000/%s/posts'
 
