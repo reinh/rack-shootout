@@ -1,3 +1,0 @@
-== leads_service
-
-A gem that provides...
