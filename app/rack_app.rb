@@ -1,5 +1,7 @@
+require 'vendor/rack-1.0.0/lib/rack'
+require 'vendor/rack-contrib-0.9.1/lib/rack/contrib'
+
 require 'rack/builder'
-require 'rack/contrib'
 require 'activerecord'
 require 'lib/post'
 

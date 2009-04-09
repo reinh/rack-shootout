@@ -1,6 +1,5 @@
-require 'rack/contrib'
-require 'sinatra'
-require 'sinatras-hat'
+require 'vendor/sinatra-0.9.1.2/lib/sinatra'
+require 'vendor/sinatras-hat-0.1.2/lib/sinatras-hat'
 require 'activerecord'
 require 'lib/post'
 

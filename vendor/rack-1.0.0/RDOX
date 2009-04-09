@@ -1,0 +1,34 @@
+
+== Rack::Auth::Basic
+* should challenge correctly when no credentials are specified
+* should rechallenge if incorrect credentials are specified
+* should return application output if correct credentials are specified
+* should return 400 Bad Request if different auth scheme used
+* realm as optional constructor arg
+
+== Rack::Auth::Digest::MD5
+* should challenge when no credentials are specified
+* should return application output if correct credentials given
+* should return application output if correct credentials given (hashed passwords)
+* should rechallenge if incorrect username given
+* should rechallenge if incorrect password given
+* should rechallenge with stale parameter if nonce is stale
+* should return 400 Bad Request if incorrect qop given
+* should return 400 Bad Request if incorrect uri given
+* should return 400 Bad Request if different auth scheme used
+* should not require credentials for unprotected path
+* should challenge when no credentials are specified for protected path
+* should return application output if correct credentials given for protected path
+* should return application output if correct credentials given for POST
+* should return application output if correct credentials given for PUT (using method override of POST)
+* realm as optional constructor arg
+
+== Rack::Auth::OpenID
+* realm uri should be valid
+* should be able to check if a uri is within the realm (empty)
+* return_to should be valid
+* extensions should have required constants defined
+* extensions should have Request and Response defined and inherit from OpenID::Extension
+
+== Rack::Builder
+* chains apps by default
