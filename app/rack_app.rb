@@ -9,7 +9,6 @@ class RackApp
       not_found = [404, {"Content-Type" => "text/plain"}, "Not Found"]
 
       map '/posts' do
-        use Rack::NestedParams
         run lambda { |env|
           return not_found unless env["REQUEST_METHOD"] == "POST"
           request = Rack::Request.new(env)
