@@ -17,6 +17,10 @@ Run migrations:
 
     rake migrate
 
+Start the serevR:
+
+    rake server:start
+
 Frameworks
 ----------
 
