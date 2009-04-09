@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'date'
 require 'spec/rake/spectask'
-require 'graph'
+require 'lib/shootout/graph'
 
 task :default => :spec
 
