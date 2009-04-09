@@ -1,8 +1,9 @@
 Rack Shootout
 =============
 
-Rack shootout measures performance of various web service components,
-including frameworks, application servers and ORMs.
+Rack Shootout measures performance of various web service components,
+including frameworks, application servers and ORMs using the amazing Rack as a
+testbed.
 
 Think you could write a better benchmark suite? Want to test something else?
 Fork me and do it!
