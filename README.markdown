@@ -17,7 +17,7 @@ Run migrations:
 
     rake migrate
 
-Start the serevR:
+Start the server:
 
     rake server:start
 
