@@ -1,10 +1,16 @@
 Rack Shootout
 =============
 
-Rack shootout measures performance of various web service components, including frameworks, application servers and ORMs.
+Rack shootout measures performance of various web service components,
+including frameworks, application servers and ORMs.
+
+Think you could write a better benchmark suite? Want to test something else?
+Fork me and do it!
 
 Frameworks
 ----------
+
+    rake shootout:frameworks
 
   * Rails (single file)
   * Sinatra
@@ -13,7 +19,7 @@ Frameworks
 Application Servers
 -------------------
 
-Coming soon!
+*Coming soon!*
 
   * Mongrel
   * Thin
@@ -23,8 +29,18 @@ Coming soon!
 ORMs
 ----
 
-Coming soon!
+*Coming soon!*
 
   * ActiveRecord
   * DataMapper
   * Sequel
+
+Awesome
+=======
+
+You know it!
+
+Contributors
+============
+
+  * Rein Henrichs
